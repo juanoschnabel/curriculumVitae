@@ -1,0 +1,22 @@
+{
+  "name": "argentinaprograma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanoschnabel/curriculumVitae.git"
+  },
+  "author": "Juan Schnabel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanoschnabel/curriculumVitae/issues"
+  },
+  "homepage": "https://github.com/juanoschnabel/curriculumVitae#readme",
+  "dependencies": {
+    "animate.css": "^4.1.1"
+  }
+}
