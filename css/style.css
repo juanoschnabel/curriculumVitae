@@ -30,9 +30,6 @@ body {
   max-width: 20%;
   max-height: auto;
 }
-.fix {
-  position: fixed;
-}
 
 @media (min-width: 768px) {
   .fuente {
