@@ -18,22 +18,26 @@ const capturarDatos = () => {
   };
   validaciones(datos);
 };
-const mensajeFinal = (nombre, telefono, email) => {
-  Toastify({
-    text: `Muchas Gracias, ${nombre}!! Los datos de contacto ingresados son: ${telefono} y ${email}. Ya recibí tu mensaje y estaremos en contacto a la brevedad.
-    Saludos!`,
-    duration: 5000,
-    close: true,
-    gravity: "top",
-    position: "right",
-    stopOnFocus: true,
-    style: {
-      background: "linear-gradient(to right, #00b09b, #96c93d)",
-    },
-    onClick: function () {},
-  }).showToast();
-};
 
+const validacionNombre = (nombre) => {
+  const validacionNombre = !/^([a-zA-ZñÑáéíóúÁÉÍÓÚ])+$/i.test(nombre)
+    ? false
+    : true;
+  return validacionNombre;
+};
+const validacionTelefono = (telefono) => {
+  if (!isNaN(telefono) && validacionNumerica(telefono) == 10) {
+    return true;
+  } else {
+    return false;
+  }
+};
+const validacionMensaje = (mensaje) => {
+  return validacionNumerica(mensaje);
+};
+const validacionNumerica = (prop) => {
+  return prop.toString().length;
+};
 const validaciones = ({ nombre, telefono, email, mensaje }) => {
   const Nombre = validacionNombre(nombre);
   const Telefono = validacionTelefono(telefono);
@@ -69,26 +73,18 @@ const validaciones = ({ nombre, telefono, email, mensaje }) => {
     document.getElementById("form").reset();
   }
 };
-const validacionNombre = (nombre) => {
-  const validacionNombre = !/^([a-zA-ZñÑáéíóúÁÉÍÓÚ])+$/i.test(nombre)
-    ? false
-    : true;
-  return validacionNombre;
-};
-const validacionTelefono = (telefono) => {
-  const validacionTelefonica = validacionNumerica(telefono);
-  if (!isNaN(telefono) && validacionTelefonica == 10) {
-    return true;
-  } else {
-    return false;
-  }
-};
-const validacionMensaje = (mensaje) => {
-  const Mensaje = validacionNumerica(mensaje);
-  console.log(Mensaje);
-  return Mensaje;
-};
-
-const validacionNumerica = (prop) => {
-  return prop.toString().length;
+const mensajeFinal = (nombre, telefono, email) => {
+  Toastify({
+    text: `Muchas Gracias, ${nombre}!! Los datos de contacto ingresados son: ${telefono} y ${email}. Ya recibí tu mensaje y estaremos en contacto a la brevedad.
+    Saludos!`,
+    duration: 5000,
+    close: true,
+    gravity: "top",
+    position: "right",
+    stopOnFocus: true,
+    style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+    },
+    onClick: function () {},
+  }).showToast();
 };
