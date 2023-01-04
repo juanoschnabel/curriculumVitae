@@ -10,9 +10,25 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-minimal@4/minimal.css"
+      rel="stylesheet"
+    />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <title>Curriculum Vitae - Nombre</title>
@@ -91,7 +107,7 @@
             class="rounded-circle img-fluid img-thumbnail width rounded mx-auto d-block"
             alt="..."
           />
-          <p class="text-center mt-3 mb-2 fuente">INFORMACIÓN PERSONAL</p>
+          <h1 class="text-center mt-3 mb-2 fuente">INFORMACIÓN PERSONAL</h1>
           <ul class="list-group list-group-flush align-items-center fuente">
             <li class="list-group-item liColor">
               Nombre y Apellido:
@@ -127,7 +143,7 @@
           class="rounded-circle img-fluid img-thumbnail width rounded mx-auto d-block mb-2"
           alt="..."
         />
-        <p class="text-center mt-3 mb-2 fuente">FORMACIÓN ACADÉMICA</p>
+        <h2 class="text-center mt-3 mb-2 fuente">FORMACIÓN ACADÉMICA</h2>
         <div
           class="accordion accordion-flush liColor"
           id="accordionFlushExample"
@@ -390,7 +406,7 @@
           class="rounded-circle img-fluid img-thumbnail width rounded mx-auto d-block mb-2 mt-3"
           alt="..."
         />
-        <p class="text-center mt-3 mb-2 fuente">EXPERIENCIA LABORAL</p>
+        <h3 class="text-center mt-3 mb-2 fuente">EXPERIENCIA LABORAL</h3>
         <div
           class="accordion accordion-flush liColor"
           id="accordionFlushTrabajos"
@@ -553,7 +569,7 @@
           class="rounded-circle img-fluid img-thumbnail width rounded mx-auto d-block mb-2"
           alt="..."
         />
-        <p class="text-center mt-3 mb-2 fuente">CONTACTO</p>
+        <h4 class="text-center mt-3 mb-2 fuente">CONTACTO</h4>
         <div class="text-center">
           <a
             target="_blank"
@@ -563,26 +579,90 @@
               class="widthContacto"
               src="https://img.icons8.com/fluency/240/000000/whatsapp.png"
           /></a>
-          <a target="_blank" class="me-1 ms-1" href="#"
+          <a
+            target="_blank"
+            class="me-1 ms-1"
+            href="https://www.linkedin.com/in/juan-schnabel/"
             ><img
               class="widthContacto"
               src="https://img.icons8.com/fluency/240/null/linkedin.png"
           /></a>
-          <a target="_blank" class="me-1 ms-1" href=""
+          <a
+            target="_blank"
+            class="me-1 ms-1"
+            href="mailto:juanmschnabel@gmail.com"
             ><img
               class="widthContacto"
               src="https://img.icons8.com/fluency/240/null/gmail-new.png"
           /></a>
-          <a target="_blank" class="me-1 ms-1 img-fluid" href=""
+          <a
+            target="_blank"
+            class="me-1 ms-1 img-fluid"
+            href="https://github.com/juanoschnabel"
             ><img
               class="widthContacto"
               src="https://img.icons8.com/stickers/300/000000/github.png"
           /></a>
-          <a target="_blank" class="me-1 ms-1 img-fluid" href=""
+          <a target="_blank" class="me-1 ms-1 img-fluid" href="tel:1159471943"
             ><img
               class="widthContacto"
               src="https://img.icons8.com/stickers/500/null/phone-contact.png"
           /></a>
+        </div>
+        <div>
+          <h5 class="text-center mt-3 mb-2 fuente">
+            O DEJÁ TU CONTACTO Y ME COMUNICO A LA BREVEDAD
+          </h5>
+          <form id="formContacto">
+            <section
+              class="d-flex align-items-start flex-column bd-highlight mb-3"
+            >
+              <input
+                id="nombre"
+                class="form-control mt-1"
+                type="text"
+                placeholder="Nombre y Apellido o Nombre de la Empresa"
+                aria-label=".form-control-sm example"
+              />
+              <input
+                id="telefono"
+                class="form-control mt-1"
+                type="tel"
+                placeholder="Teléfono de Contacto"
+                aria-label=".form-control-sm example"
+              />
+              <input
+                id="email"
+                class="form-control mt-1"
+                type="email"
+                placeholder="Correo electrónico"
+                aria-label=".form-control-sm example"
+              />
+            </section>
+            <div class="form-floating">
+              <p class="text-center mt-1 mb-2">ESCRIBÍ TU MENSAJE ACÁ</p>
+              <div class="form-floating">
+                <textarea
+                  class="form-control"
+                  placeholder="Leave a comment here"
+                  id="mensaje"
+                  style="height: 100px"
+                ></textarea>
+              </div>
+            </div>
+            <div class="d-flex justify-content-evenly">
+              <input
+                class="btn btn-dark mt-2 pe-3 me-2"
+                type="submit"
+                value="Enviar"
+              />
+              <input
+                class="btn btn-dark mt-2 pe-3 ms-2"
+                type="reset"
+                value="Borrar"
+              />
+            </div>
+          </form>
         </div>
       </div>
     </section>
@@ -596,5 +676,11 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/wow.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
