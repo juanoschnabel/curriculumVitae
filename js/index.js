@@ -4,7 +4,6 @@ form.addEventListener("submit", (e) => {
   capturarDatos();
   document.getElementById("formContacto").reset();
 });
-
 const capturarDatos = () => {
   const nombre = document.getElementById("nombre").value;
   const telefono = Number(document.getElementById("telefono").value);
@@ -18,7 +17,6 @@ const capturarDatos = () => {
   };
   validaciones(datos);
 };
-
 const validacionNombre = (nombre) => {
   const validacionNombre = !/^([a-zA-ZñÑáéíóúÁÉÍÓÚ])+$/i.test(nombre)
     ? false
