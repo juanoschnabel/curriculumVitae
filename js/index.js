@@ -63,7 +63,7 @@ const validaciones = ({ nombre, telefono, email, mensaje }) => {
       timer: 4000,
     });
   }
-  if (Nombre && Telefono && Mensaje) {
+  if (Nombre && Telefono === true && Mensaje > 19) {
     mensajeFinal(nombre, telefono, email);
   } else {
     document.getElementById("form").reset();
