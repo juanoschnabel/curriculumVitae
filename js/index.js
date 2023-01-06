@@ -18,9 +18,10 @@ const capturarDatos = () => {
   validaciones(datos);
 };
 const validacionNombre = (nombre) => {
-  const validacionNombre = !/^([a-zA-ZñÑáéíóúÁÉÍÓÚ])+$/i.test(nombre)
-    ? false
-    : true;
+  const validacionNombre =
+    !/^[ÁÉÍÓÚA-Z][a-záéíóú]+(\s+[ÁÉÍÓÚA-Z]?[a-záéíóú]+)*$/i.test(nombre)
+      ? false
+      : true;
   return validacionNombre;
 };
 const validacionTelefono = (telefono) => {
@@ -34,17 +35,24 @@ const validacionMensaje = (mensaje) => {
   return validacionNumerica(mensaje);
 };
 const validacionNumerica = (prop) => {
-  return prop.toString().length;
+  return Number(prop.toString().length);
 };
 const validaciones = ({ nombre, telefono, email, mensaje }) => {
   const Nombre = validacionNombre(nombre);
   const Telefono = validacionTelefono(telefono);
   const Mensaje = validacionMensaje(mensaje);
-  if (Nombre === false) {
+  const caracteres = validacionNumerica(nombre);
+  let validacionCaracteres;
+  if (caracteres < 4 || caracteres > 50) {
+    validacionCaracteres = false;
+  } else {
+    validacionCaracteres = true;
+  }
+  if (Nombre === false || caracteres < 4 || caracteres > 50) {
     Swal.fire({
       icon: "error",
       title:
-        "Ingrese un nombre válido que tenga entre 4 y 20 caracteres y que solo contenga letras",
+        "Ingrese un nombre válido que tenga entre 4 y 50 caracteres y que solo contenga letras",
       showConfirmButton: false,
       timer: 4000,
     });
@@ -65,7 +73,7 @@ const validaciones = ({ nombre, telefono, email, mensaje }) => {
       timer: 4000,
     });
   }
-  if (Nombre && Telefono === true && Mensaje > 19) {
+  if (Nombre && validacionCaracteres && Telefono === true && Mensaje > 19) {
     mensajeFinal(nombre, telefono, email);
   } else {
     document.getElementById("form").reset();
